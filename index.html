@@ -1,0 +1,123 @@
+export default function KadesCup2026() { const groupA = ["RT 001", "RT 002", "RT 003", "RT 004", "RT 005", "RT 006"]; const groupB = ["RT 007", "RT 008", "RT 009", "RT 010", "RT 011", "RT 012"];
+
+const schedule = [ { date: "20 Juni 2026", match: "RT 001 vs RT 002", time: "15:30 WIB", }, { date: "20 Juni 2026", match: "RT 003 vs RT 004", time: "16:30 WIB", }, { date: "21 Juni 2026", match: "RT 007 vs RT 008", time: "15:30 WIB", }, { date: "21 Juni 2026", match: "RT 009 vs RT 010", time: "16:30 WIB", }, ];
+
+const results = [ { match: "RT 001 vs RT 002", score: "2 - 1", }, { match: "RT 003 vs RT 004", score: "0 - 0", }, ];
+
+return ( <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-900 to-black text-white p-6"> <div className="max-w-6xl mx-auto"> <div className="text-center mb-10"> <h1 className="text-5xl font-extrabold tracking-wide mb-3"> KADES CUP 2026 </h1> <p className="text-slate-300 text-lg"> Website resmi klasemen, jadwal, dan hasil pertandingan </p> </div>
+
+<div className="grid md:grid-cols-2 gap-6 mb-10">
+      <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/10">
+        <h2 className="text-3xl font-bold mb-4 text-yellow-400">
+          Grup A
+        </h2>
+        <div className="space-y-3">
+          {groupA.map((team, index) => (
+            <div
+              key={index}
+              className="bg-white/10 rounded-2xl px-4 py-3 text-lg font-semibold"
+            >
+              {team}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/10">
+        <h2 className="text-3xl font-bold mb-4 text-cyan-400">
+          Grup B
+        </h2>
+        <div className="space-y-3">
+          {groupB.map((team, index) => (
+            <div
+              key={index}
+              className="bg-white/10 rounded-2xl px-4 py-3 text-lg font-semibold"
+            >
+              {team}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/10 mb-10 overflow-x-auto">
+      <h2 className="text-3xl font-bold mb-6 text-green-400">
+        Klasemen
+      </h2>
+
+      <table className="w-full text-left border-collapse">
+        <thead>
+          <tr className="border-b border-white/20 text-slate-300">
+            <th className="py-3">Tim</th>
+            <th>M</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>Poin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-white/10">
+            <td className="py-3">RT 001</td>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>3</td>
+          </tr>
+          <tr className="border-b border-white/10">
+            <td className="py-3">RT 002</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-6">
+      <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/10">
+        <h2 className="text-3xl font-bold mb-6 text-orange-400">
+          Jadwal Pertandingan
+        </h2>
+
+        <div className="space-y-4">
+          {schedule.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/10 rounded-2xl p-4"
+            >
+              <p className="font-bold text-lg">{item.match}</p>
+              <p className="text-slate-300">{item.date}</p>
+              <p className="text-slate-400">{item.time}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl border border-white/10">
+        <h2 className="text-3xl font-bold mb-6 text-red-400">
+          Hasil Pertandingan
+        </h2>
+
+        <div className="space-y-4">
+          {results.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white/10 rounded-2xl p-4 flex justify-between items-center"
+            >
+              <p className="font-semibold">{item.match}</p>
+              <span className="text-2xl font-bold text-yellow-400">
+                {item.score}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+); }
